@@ -227,3 +227,6 @@ visibility:hidden;
 .actionTypeSpan.actionReadytoClose{
 	background-color:#999999;
 }
+.actionTypeSpan.Development{
+	background-color:#E3808E;
+}
