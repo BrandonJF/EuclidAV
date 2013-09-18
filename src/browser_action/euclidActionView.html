@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="euclidAV" ng-csp="">
+<head>
+	<title>Bootstrap 101 Template</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/css/styles.css" rel="stylesheet" media="screen">
+	
+</head>
+<body ng-controller="ActionViewCtrl">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Euclid ActionView</a>
+			</div>
+		</div>
+	</div>
+	<div class="container">  
+		<div class="row" id="searchRow"> 
+			<a href="#/"><div class="col-xs-2 topNavBtn" ng-click="getUserAis()"> <i class="icon-user"></i> </div></a>
+			<a href="#/bookmarks"><div class="col-xs-2 topNavBtn"> <i class="icon-bookmark "></i>  </div></a>
+			<a href="https://www.euclidtechnology.com/support/myactionitems.aspx"><div class="col-xs-2 topNavBtn" id="topNavBrowser"> <i class="icon-globe"></i> </div></a>
+			<div class="col-xs-6" id="searchInputDiv">  
+				<div class="input-group">
+					<span class="input-group-btn">
+						<button id="searchAiBtn"class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> </button>
+					</span>
+					<input type="text" id="searchAiInput"class="form-control" placeholder="Search for Action Items" ng-model="actionItem">
+
+				</div><!-- /input-group -->
+			</div>
+		</div>  
+	</div>
+	<div id="viewContainer" ng-view></div>
+
+
+
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+	<script src="/js/localStorageModule.js"></script>
+	<script src="/js/lodash.min.js"></script>
+	<script src="/js/main.js"></script>
+	<script src="/js/config/routes.js"></script>
+	<script src="/js/controllers/actionViewCtrl.js"></script>
+	<script src="/js/controllers/userAiListCtrl.js"></script>
+	<script src="/js/controllers/aiDetailCtrl.js"></script>
+	<script src="/js/services/aiService.js"></script>
+	<script src="/js/euclidActionView.js"></script>
+	<script src="/js/localStorageModule.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

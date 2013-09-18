@@ -1,0 +1,38 @@
+{
+  "name": "Euclid Angular AI Extension",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Euclid + Angular Chrome extension for viewing Action Items.",
+  "homepage_url": "http://support.euclidtechnology.com",
+  "icons": {
+    //"16": "icons/icon16.png",
+    //"48": "icons/icon48.png",
+    "128": "img/icon/icon_128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_icon": "img/icon/icon_19.png",
+    "default_title": "Euclid Angular Omniview",
+    "default_popup": "src/browser_action/euclidActionView.html"
+  },
+  "permissions": [
+    "cookies",
+    "notifications",
+    "tabs",
+    "http://*/",
+    "https://*/",
+    "http://*/*",
+    "https://*/*",
+    "https://www.euclidtechnology.com/cvweb_support/cgi-bin",
+    "https://www.euclidtechnology.com/cvweb_support/cgi-bin/*/*"
+  ],
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js; object-src 'self'"
+}
+
+//"https://www.euclidtechnology.com/cvweb_support/cgi-bin/actionitemsdll.dll/list?&RANGE=1%2f10&WHP=ai_header_MY.htm&WBP=ai_list_admin.htm&SORT=listitemnum+desc&ACTIONASSIGNEDTOCD=BJOHNFRESO&ACTIONSTT=Out-standing&SHOWSQL=N"

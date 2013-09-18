@@ -1,0 +1,11 @@
+ <div id="aiContainer" class="container"  >
+      <div class="row userAiRow" ng-repeat="bookmark in ai.bookmarks">
+        <div class="aiOptionsDiv col-xs-2">
+          <span class="col-xs-4 optIconSpan" ng-click="openUserAi(bookmark)"><i class="icon-globe"></i></span>
+          
+          <span class="col-xs-4 optIconSpan"><i class="icon-info-sign"></i></span>
+        </div> 
+        <div class="aiNumberDiv col-xs-6">Item #{{bookmark}}</div>
+        <div ng-click="openUserAi({{bookmark.LISTITEMNUM}})" class="aiStatusDiv col-xs-4"><span class="label actionTypeSpan action{{bookmark}}">{{bookmark}}</span></div>
+      </div>
+    </div>

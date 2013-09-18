@@ -1,0 +1,228 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+body{
+	min-width: 400px;
+	min-height: 500px;
+	font-family: "Lato", Helvetica, Arial, sans-serif;
+	padding-top: 50px;
+	background-color: #FFF;
+	/*background: url("/img/bg/furley_bg.png");*/
+
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	font-family: "Lato", Helvetica, Arial, sans-serif;
+}
+
+a{
+	text-decoration: none;
+}
+.navbar-inverse{
+	font-family: "Lato", Helvetica, Arial, sans-serif;
+	font-weight: 400;
+	background-color: #4B6C8B;
+	border:none;
+	border-bottom: 1px solid #385574;
+	border-bottom-color: #385574;
+	height:50px;
+
+	/*box-shadow: 0 4px 2px -2px rgba(0,0,0,0.5);*/
+	box-shadow: none;
+}
+.navbar-inverse .navbar-brand {
+color: #6687A5;
+font-size: 20px;
+}
+
+#searchRow{
+	/*padding-top: 10px;
+	padding-bottom: 10px;*/
+	min-height: 54px;
+	background-color: #3D5B77;
+	border-bottom: 1px solid #385574;
+}
+
+#searchRow .form-control{
+	background-color: #3D5B77;
+	border:none;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
+#searchRow .form-control{
+   color: #61C6CF;
+   font-family: "Lato", Helvetica, Arial, sans-serif;
+	font-weight: 700;
+}
+#searchRow .form-control::-webkit-input-placeholder {
+   color: #6687A5;
+   font-family: "Lato", Helvetica, Arial, sans-serif;
+	font-weight: 700;
+}
+#searchRow .input-group-addon{
+	background-color: #3D5B77;
+	color:#6687A5;
+	border:none;
+}
+
+
+#searchRow .btn{
+	background-color: #3D5B77;
+	color:#6687A5;
+	border:none;
+}
+
+.topNavBtn{
+	background-color: #4B6C8B;
+	height: 54px;
+	width: 13.25%;
+	border-right: 1px solid #537797;
+	border-left: 1px solid #385574;
+	text-align: center;
+	line-height: 54px;
+	color: #6788A6;
+}
+.topNavBtn i{
+	color: #6788A6;
+}
+.topNavBtn:hover i{
+	color: #61C6CF;
+}
+#searchInputDiv{
+	width: 58.75%;
+	border-left: 1px solid #385574;
+	padding-left: 0; 
+	padding-right:0;
+	padding-top: 10px;
+}
+.userAiRow{
+	list-style: none;
+	color:#6687A5;
+	font-family: "Lato", Helvetica, Arial, sans-serif;
+	font-weight: 700;
+	font-size: 15px;
+	padding-left: 0;
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px solid #E5EEF8;
+}
+#userAiList{
+	list-style: none;
+	color:#6687A5;
+	font-family: "Lato", Helvetica, Arial, sans-serif;
+	font-weight: 700;
+	font-size: 15px;
+	padding-left: 0;
+	padding-right: 0;
+
+}
+#userAiList li{
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px solid #E5EEF8;
+
+}
+
+#aiContainer{
+	/*padding-left: 0;*/
+	/*padding-right: 0;*/
+}
+
+.aiOptionsDiv{
+	background-color: #3AB7C0;
+	color: #FFF;
+	padding-left: 0;
+	padding-right: 0;
+	width: 2.5%;
+	min-height: 59px;
+	max-height: 60px;
+	overflow: hidden;
+	/*-webkit-transition: width .2s ease-in-out;*/
+	transition: width .2s ease-in-out, background-color .5s ease-in;
+}
+
+.aiOptionsDiv.optionsExp{
+	background-color: #3AB7C0;
+	color: #9AF8FF;
+	padding-left: 0;
+	padding-right: 0;
+	width: 31.25%;
+	 
+}
+
+.aiOptionsDiv i{
+display: none;	
+}
+
+.aiOptionsDiv.highlighted{
+	background-color: #4B6C8B;
+}
+
+.aiOptionsDiv.optionsExp .optIconSpan i{
+display: inline;
+transition:font-size linear 0.2s;
+}
+
+.aiOptionsDiv.optionsExp .optIconSpan:hover i {
+color: #FFF;
+font-size:1.2em;
+
+}
+
+.aiOptionsDiv.optionsExp ~ .aiStatusDiv{
+visibility:hidden;
+  opacity:0;
+  width:0;
+  transition-delay:0s;
+
+}
+
+.aiNumberDiv:hover ~ .aiOptionsDiv{
+	width: 5%;
+}
+
+.aiNumberDiv{
+	cursor: pointer;
+}
+
+.aiStatusDiv{
+  visibility:visible;
+  opacity:1;
+  width:60px;
+ 
+   transition:visibility 0s linear 0.2s,opacity 0.2s linear, width 0.2s ease-in-out;
+}
+
+.actionTypeSpan{
+	width: 117px;
+	display: inline-block;
+	border-radius: 4px;
+}
+.actionTypeSpan.actionTEST{
+	background-color:#E07182;
+}
+.actionTypeSpan.actionProject{
+	background-color:#ED9E57;
+}
+.actionTypeSpan.actionInprogress{
+	background-color:#61C6CF;
+}
+
+.actionTypeSpan.actionClientReview{
+	background-color:#7D60D5;
+}
+.actionTypeSpan.actionInvestigate{
+	background-color:#F7BF47;
+}
+
+.actionTypeSpan.actionReadytoClose{
+	background-color:#999999;
+}
