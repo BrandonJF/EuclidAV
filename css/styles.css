@@ -169,6 +169,7 @@ display: none;
 .aiOptionsDiv.optionsExp .optIconSpan i{
 display: inline;
 transition:font-size linear 0.2s;
+color: #9AF8FF;
 }
 
 .aiOptionsDiv.optionsExp .optIconSpan:hover i {

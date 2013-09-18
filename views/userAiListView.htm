@@ -6,7 +6,8 @@
             <i class="icon-bookmark-empty" ng-hide="actionItem.bookmarked"></i>
             <i class="icon-bookmark" ng-hide="actionItem.bookmarked == false"></i>
           </span>
-          <span class="col-xs-4 optIconSpan"><i class="icon-info-sign"></i></span>
+          <a ng-href="#/ai/{{actionItem.LISTITEMNUM}}"><span class="col-xs-4 optIconSpan" ><i class="icon-info-sign"></i></span></a>
+         
         </div> 
         <div class="aiNumberDiv col-xs-6">Item #{{actionItem.LISTITEMNUM}}</div>
         <div ng-click="openUserAi({{actionItem.LISTITEMNUM}})" class="aiStatusDiv col-xs-4"><span class="label actionTypeSpan action{{actionItem.actionTypeClass}}">{{actionItem.ACTIONTYPE}}</span></div>

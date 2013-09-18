@@ -6,7 +6,7 @@ euclidAV.controller("ActionViewCtrl", ['$scope','$http','localStorageService', '
     bookmarks:localStorageService.get('userBookmarks')||[]
   }
 
-  console.log($scope);
+  //console.log($scope);
 
   $scope.storeBookmark = function(aiNumber){
       $scope.ai.bookmarks.push(aiNumber);
@@ -19,7 +19,7 @@ euclidAV.controller("ActionViewCtrl", ['$scope','$http','localStorageService', '
   }
 
   $scope.toggleBookmark = function(actionItem){
-    console.log(_.indexOf($scope.ai.bookmarks, actionItem.LISTITEMNUM)!==-1);
+    //console.log(_.indexOf($scope.ai.bookmarks, actionItem.LISTITEMNUM)!==-1);
     var containsBookmark = _.indexOf($scope.ai.bookmarks, actionItem.LISTITEMNUM)!==-1;
     if (containsBookmark == true){
       $scope.removeBookmark(actionItem.LISTITEMNUM);
@@ -39,8 +39,8 @@ euclidAV.controller("ActionViewCtrl", ['$scope','$http','localStorageService', '
     aiService.getUserAis().success(function (data, status) { 
       //console.log(data);
       $scope.ai.actionItems = $scope.modifyAis(data.actionItems);
-      console.log("getuserai scope",$scope.$id);
-      console.log($scope);
+      //console.log("getuserai scope",$scope.$id);
+      //console.log($scope);
 
     }).error(function (data, status) {
       $scope.ai.details = "Not able to make a connection." + data + status;
