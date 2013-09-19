@@ -26,7 +26,7 @@ var actionItemDllBaseUrl = "https://www.euclidtechnology.com/cvweb/cgi-bin/actio
       method: 'GET',
       params: {
         "LISTITEMNUM":aiNumber,
-		"RESPONSEPAGE":"AI_UPDATE_ADMIN.HTM",
+		"RESPONSEPAGE":"actionNote.htm",
 		"WMT":"none"		
       }
     });

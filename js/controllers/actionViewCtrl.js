@@ -54,6 +54,7 @@ euclidAV.controller("ActionViewCtrl", ['$scope','$http','localStorageService', '
     });
     return actionItems;
   }
+  $scope.getUserAis();
 
   window.ActionViewCtrl = $scope;
 }]);
