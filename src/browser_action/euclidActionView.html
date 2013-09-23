@@ -24,9 +24,11 @@
 			<div class="col-xs-6" id="searchInputDiv">  
 				<div class="input-group">
 					<span class="input-group-btn">
-						<button id="searchAiBtn"class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> </button>
+						<button id="searchAiBtn"class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" ng-click="searchUserAi(searchAiNumber)"></span> </button>
 					</span>
-					<input type="text" id="searchAiInput"class="form-control" placeholder="Search for Action Items" ng-model="actionItem">
+					<form ng-submit="searchUserAi(searchAiNumber)">
+					<input type="text" id="searchAiInput"class="form-control" placeholder="Search for Action Items" ng-model="searchAiNumber">
+					</form>
 
 				</div><!-- /input-group -->
 			</div>

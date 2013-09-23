@@ -1,8 +1,8 @@
 $(function () {
 	
-	$("#searchAiBtn").click(function(){
-		var aiNumber = $("#searchAiInput").val();
-		searchAi(aiNumber);})
+	// $("#searchAiBtn").click(function(){
+	// 	var aiNumber = $("#searchAiInput").val();
+	// 	searchAi(aiNumber);})
 
 
 	function searchAi(aiNumber){
