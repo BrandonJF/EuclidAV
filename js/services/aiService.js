@@ -36,8 +36,8 @@ euclidAV.factory("aiService", function($http, localStorageService){
    getBookmarks: function(){
     return aiService.bookmarks;
    },
-  storeBookmark: function(aiNumber){
-      aiService.bookmarks.push(aiNumber);
+  storeBookmark: function(actionItem){
+      aiService.bookmarks.push(actionItem);
      localStorageService.add('userBookmarks',aiService.bookmarks);
      console.log(aiService.bookmarks);
   },
@@ -50,14 +50,17 @@ euclidAV.factory("aiService", function($http, localStorageService){
   toggleBookmark: function(actionItem){
     //console.log(_.indexOf(bookmarks, actionItem.LISTITEMNUM)!==-1);
     console.log("Toggling bookmark item");
-    var containsBookmark = _.indexOf(aiService.bookmarks, actionItem.LISTITEMNUM)!==-1;
+    // var containsBookmark = _.indexOf(aiService.bookmarks, actionItem.LISTITEMNUM)!==-1;
+    var containsBookmark = _.any(aiService.bookmarks, function(aiObj){return aiObj.LISTITEMNUM == actionItem.LISTITEMNUM});
 
     if (containsBookmark == true){
-      aiService.removeBookmark(actionItem.LISTITEMNUM);
+       console.log("The bookmark is already there");
+      aiService.removeBookmark(actionItem);
       actionItem.bookmarked = false;
     }
     else if(containsBookmark == false) {
-       aiService.storeBookmark(actionItem.LISTITEMNUM);
+      console.log("The bookmark is NOT already there");
+       aiService.storeBookmark(actionItem);
       actionItem.bookmarked = true;
     }
     console.log(actionItem);
