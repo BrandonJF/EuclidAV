@@ -44,6 +44,7 @@ euclidAV.controller("ActionViewCtrl", ['$scope','$http','$location','localStorag
     aiService.getUserAis().success(function (data, status) { 
       //console.log(data);
       $scope.ai.actionItems = aiService.modifyAis(data.actionItems);
+      aiService.setBadge(data.RECORDCOUNT.toString());
       //console.log("getuserai scope",$scope.$id);
       //console.log($scope);
 

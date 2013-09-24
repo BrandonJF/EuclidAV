@@ -104,6 +104,9 @@ euclidAV.factory("aiService", function($http, localStorageService){
       actionItem.bookmarked = aiService.isBookmarked(actionItem);
       console.log(actionItem.bookmarked)
       return actionItem;
+  },
+  setBadge: function(text){
+  	chrome.browserAction.setBadgeText({"text":text});
   }
 
 };//end aiService Object
