@@ -20,7 +20,9 @@ euclidAV.controller('aiDetailCtrl',['$scope','$routeParams','aiService',function
 
 $scope.getDetails = function(){
 	aiService.getAiDetails($scope.aiNumber).success(function(data){
+		console.log("getDetailsData",data)
 		 $scope.ai = aiService.modifyAi(data);
+		 console.log("scope.ai", $scope.ai);
 	});
 }
 

@@ -3,6 +3,7 @@ euclidAV.factory("aiService", function($http, localStorageService){
     actionItemDllBaseUrl:"https://www.euclidtechnology.com/cvweb/cgi-bin/actionitemsdll.dll/list?",
     bookmarks: localStorageService.get('userBookmarks')||[],
     getUserAis: function () {
+    	console.log("getUserAis Called.");
     return $http({
       url: aiService.actionItemDllBaseUrl,
       method: 'GET',
@@ -46,15 +47,22 @@ euclidAV.factory("aiService", function($http, localStorageService){
    },
 
    getBookmarks: function(){
+   	console.log("getBookmarks Called.");
     return aiService.bookmarks;
    },
   storeBookmark: function(actionItem){
+  	console.log("storeBookmark Called.");
+  	console.log("this is the action item to store", actionItem);
+  	console.log("this is what aiService.bookmarks looks like now", aiService.bookmarks);
       aiService.bookmarks.push(actionItem);
+      console.log("this is what it looks like after the push", aiService.bookmarks);
+      console.log("here is what the localstorage looks like b4 push", localStorage["euclidAV.userBookmarks"]);
      localStorageService.add('userBookmarks',aiService.bookmarks);
-     console.log(aiService.bookmarks);
+     console.log("here is what the localstorage looks like after push", localStorage["euclidAV.userBookmarks"]);
   },
 
    removeBookmark: function(actionItem){
+   	console.log("removeBookmark Called.");
     console.log("Removing", actionItem);
     console.log("matching to", aiService.bookmarks);
 
@@ -66,25 +74,26 @@ euclidAV.factory("aiService", function($http, localStorageService){
 
   toggleBookmark: function(actionItem){
     //console.log(_.indexOf(bookmarks, actionItem.LISTITEMNUM)!==-1);
-    console.log("Toggling bookmark item");
+    console.log("toggleBookmark Called.");
     // var containsBookmark = _.indexOf(aiService.bookmarks, actionItem.LISTITEMNUM)!==-1;
     var containsBookmark = _.any(aiService.bookmarks, function(aiObj){return aiObj.LISTITEMNUM == actionItem.LISTITEMNUM});
 
     if (containsBookmark == true){
        console.log("The bookmark is already there");
+       actionItem.bookmarked = false;
       aiService.removeBookmark(actionItem);
-      actionItem.bookmarked = false;
     }
     else if(containsBookmark == false) {
       console.log("The bookmark is NOT already there");
-       aiService.storeBookmark(actionItem);
       actionItem.bookmarked = true;
+       aiService.storeBookmark(actionItem);
     }
     console.log(actionItem);
     console.log("aiServBookmarks", aiService.bookmarks);
   },
 
   isBookmarked: function(actionItem){
+  	console.log("isBookmarked Called.");
     //return _.indexOf(aiService.bookmarks, aiNumber)!==-1 ? true : false;
     return _.any(aiService.bookmarks, function(aiObj){return aiObj.LISTITEMNUM == actionItem.LISTITEMNUM});
   },
@@ -94,12 +103,14 @@ euclidAV.factory("aiService", function($http, localStorageService){
     })
   },
   modifyAis: function(actionItems){
+  	console.log("modifyAis Called.");
     $.each(actionItems, function(index,actionItem){
      actionItem = aiService.modifyAi(actionItem);
     });
     return actionItems;
   },
   modifyAi: function(actionItem){
+  	console.log("modifyAi Called.");
   	 actionItem.actionTypeClass = actionItem.ACTIONTYPE.replace(/\s+/g,'');
       actionItem.bookmarked = aiService.isBookmarked(actionItem);
       console.log(actionItem.bookmarked)
