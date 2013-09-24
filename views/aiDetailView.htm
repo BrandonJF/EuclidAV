@@ -1,14 +1,14 @@
 	<div id="aiDetailHeader">
 		<div class="container">
-			<span>Item #{{ai.LISTITEMNUM}}</span>
+			<span>Item #{{aiNumber}}</span>
 			<div id="detailHeaderBtnDiv">
-			<div class="btnSubDiv"><i class="icon-bookmark-empty" ng-hide="actionItem.bookmarked"></i></div>
-			<div class="btnSubDiv"><i class="icon-globe"></i></div>
-			
-			
+				<div class="btnSubDiv" ng-click="aiService.toggleBookmark(ai)"> <i class="icon-bookmark-empty" ng-hide="ai.bookmarked"></i>
+            <i class="icon-bookmark" ng-hide="ai.bookmarked == false"></i></div>
+				<div class="btnSubDiv" ng-click="aiService.openUserAi(ai.LISTITEMNUM)"><i class="icon-globe"></i></div>
 			</div>
 		</div>
 	</div>
+	
 	<div class="container">
 
 		<div id="details">

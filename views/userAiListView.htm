@@ -1,8 +1,8 @@
   <div id="aiContainer" class="container" ng-controller="UserAiListCtrl" >
       <div class="row userAiRow" ng-repeat="actionItem in ai.actionItems">
         <div class="aiOptionsDiv col-xs-2">
-          <span class="col-xs-4 optIconSpan" ng-click="openUserAi(actionItem.LISTITEMNUM)"><i class="icon-globe"></i></span>
-          <span class="col-xs-4 optIconSpan" ng-click="toggleBookmark(actionItem)">
+          <span class="col-xs-4 optIconSpan" ng-click="aiService.openUserAi(actionItem.LISTITEMNUM)"><i class="icon-globe"></i></span>
+          <span class="col-xs-4 optIconSpan" ng-click="aiService.toggleBookmark(actionItem)">
             <i class="icon-bookmark-empty" ng-hide="actionItem.bookmarked"></i>
             <i class="icon-bookmark" ng-hide="actionItem.bookmarked == false"></i>
           </span>
@@ -10,6 +10,6 @@
          
         </div> 
         <div class="aiNumberDiv col-xs-6">Item #{{actionItem.LISTITEMNUM}}</div>
-        <div ng-click="openUserAi({{actionItem.LISTITEMNUM}})" class="aiStatusDiv col-xs-4"><span class="label actionTypeSpan action{{actionItem.actionTypeClass}}">{{actionItem.ACTIONTYPE}}</span></div>
+        <div ng-click="aiService.openUserAi({{actionItem.LISTITEMNUM}})" class="aiStatusDiv col-xs-4"><span class="label actionTypeSpan action{{actionItem.actionTypeClass}}">{{actionItem.ACTIONTYPE}}</span></div>
       </div>
     </div>

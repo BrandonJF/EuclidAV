@@ -21,7 +21,7 @@ euclidAV.factory("aiService", function($http, localStorageService){
     });
 
   },
-   getAiDetails: function (aiNumber) {
+   getAiNotes: function (aiNumber) {
    	return $http({
       url: "https://www.euclidtechnology.com/cvweb/cgi-bin/actionitemsdll.dll/info?",
       method: 'GET',
@@ -29,6 +29,18 @@ euclidAV.factory("aiService", function($http, localStorageService){
         "LISTITEMNUM":aiNumber,
 		"RESPONSEPAGE":"actionNote.htm",
 		"WMT":"none"		
+      }
+    });
+   },
+
+   getAiDetails: function(aiNumber){
+   		return $http({
+      url: "https://www.euclidtechnology.com/cvweb/cgi-bin/actionitemsdll.dll/info?",
+      method: 'GET',
+      params: {
+        "LISTITEMNUM":aiNumber,
+		"WMT":"none",
+		 "RESPONSEPAGE": "ai_list_JSON.json"
       }
     });
    },
@@ -42,8 +54,13 @@ euclidAV.factory("aiService", function($http, localStorageService){
      console.log(aiService.bookmarks);
   },
 
-   removeBookmark: function(aiNumber){
-      aiService.bookmarks = _.without(aiService.bookmarks,aiNumber);
+   removeBookmark: function(actionItem){
+    console.log("Removing", actionItem);
+    console.log("matching to", aiService.bookmarks);
+
+      //aiService.bookmarks = _.without(aiService.bookmarks,actionItem);
+      _.remove(aiService.bookmarks, function(aiObj) { return aiObj.LISTITEMNUM == actionItem.LISTITEMNUM; });
+      console.log("New array is", aiService.bookmarks);
      localStorageService.add('userBookmarks',aiService.bookmarks);
   },
 
@@ -67,8 +84,26 @@ euclidAV.factory("aiService", function($http, localStorageService){
     console.log("aiServBookmarks", aiService.bookmarks);
   },
 
-  isBookmarked: function(aiNumber){
-    return _.indexOf(aiService.bookmarks, aiNumber)!==-1 ? true : false;
+  isBookmarked: function(actionItem){
+    //return _.indexOf(aiService.bookmarks, aiNumber)!==-1 ? true : false;
+    return _.any(aiService.bookmarks, function(aiObj){return aiObj.LISTITEMNUM == actionItem.LISTITEMNUM});
+  },
+  openUserAi: function(aiNumber){
+    chrome.tabs.create({
+      "url":"https://www.euclidtechnology.com/support/ActionItem.aspx?cv_ActionItem="+aiNumber
+    })
+  },
+  modifyAis: function(actionItems){
+    $.each(actionItems, function(index,actionItem){
+     actionItem = aiService.modifyAi(actionItem);
+    });
+    return actionItems;
+  },
+  modifyAi: function(actionItem){
+  	 actionItem.actionTypeClass = actionItem.ACTIONTYPE.replace(/\s+/g,'');
+      actionItem.bookmarked = aiService.isBookmarked(actionItem);
+      console.log(actionItem.bookmarked)
+      return actionItem;
   }
 
 };//end aiService Object

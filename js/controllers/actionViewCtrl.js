@@ -43,22 +43,13 @@ euclidAV.controller("ActionViewCtrl", ['$scope','$http','$location','localStorag
   $scope.getUserAis = function () {
     aiService.getUserAis().success(function (data, status) { 
       //console.log(data);
-      $scope.ai.actionItems = $scope.modifyAis(data.actionItems);
+      $scope.ai.actionItems = aiService.modifyAis(data.actionItems);
       //console.log("getuserai scope",$scope.$id);
       //console.log($scope);
 
     }).error(function (data, status) {
       $scope.ai.details = "Not able to make a connection." + data + status;
     });
-  }
-
-  $scope.modifyAis = function(actionItems){
-    $.each(actionItems, function(index,actionItem){
-      actionItem.actionTypeClass = actionItem.ACTIONTYPE.replace(/\s+/g,'');
-      actionItem.bookmarked = aiService.isBookmarked(actionItem.LISTITEMNUM);
-      console.log(actionItem.bookmarked)
-    });
-    return actionItems;
   }
 
   $scope.searchUserAi = function(aiNumber){

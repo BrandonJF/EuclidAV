@@ -1,23 +1,29 @@
 euclidAV.controller('aiDetailCtrl',['$scope','$routeParams','aiService',function($scope,$routeParams, aiService){
 
 	$scope.test = "This is the aiDetailCtrl";
-	$scope.ai = {
-		"LISTITEMNUM" : $routeParams.aiNumber,
-		"details" : "Loading...."
-	}
+	$scope.aiNumber = $routeParams.aiNumber;
+	$scope.details = "Loading...";
+	$scope.ai = {};
 
-	aiService.getAiDetails($scope.ai.LISTITEMNUM).success(function(data){
+	aiService.getAiNotes($scope.aiNumber).success(function(data){
 		var note = $(data);
 		$("#details").html(note);
 		if($("#details").text().length > 10){
-		$scope.ai.details = note;
+		$scope.details = note;
 		$scope.modifyDetails();
 		}
 		else{
 			$("#details").html("Unable to find Action Item in system.")
 		}
-	
+	$scope.getDetails();
 	});
+
+$scope.getDetails = function(){
+	aiService.getAiDetails($scope.aiNumber).success(function(data){
+		 $scope.ai = aiService.modifyAi(data);
+	});
+}
+
 
 	
 

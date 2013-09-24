@@ -1,15 +1,15 @@
- <div id="aiContainer" class="container"  >
-
+   <div id="aiContainer" class="container">
       <div class="row userAiRow" ng-repeat="bookmark in aiService.bookmarks">
         <div class="aiOptionsDiv col-xs-2">
-          <span class="col-xs-4 optIconSpan" ng-click="openUserAi(bookmark)"><i class="icon-globe"></i></span>
-          <span class="col-xs-4 optIconSpan" ng-click="toggleBookmark(bookmark)">
+          <span class="col-xs-4 optIconSpan" ng-click="aiService.openUserAi(bookmark.LISTITEMNUM)"><i class="icon-globe"></i></span>
+          <span class="col-xs-4 optIconSpan" ng-click="aiService.toggleBookmark(bookmark)">
             <i class="icon-bookmark-empty" ng-hide="bookmark.bookmarked"></i>
             <i class="icon-bookmark" ng-hide="bookmark.bookmarked == false"></i>
           </span>
-          <span class="col-xs-4 optIconSpan"><i class="icon-info-sign"></i></span>
+          <a ng-href="#/ai/{{bookmark.LISTITEMNUM}}"><span class="col-xs-4 optIconSpan" ><i class="icon-info-sign"></i></span></a>
+         
         </div> 
         <div class="aiNumberDiv col-xs-6">Item #{{bookmark.LISTITEMNUM}}</div>
-        <div ng-click="openUserAi({{bookmark.LISTITEMNUM}})" class="aiStatusDiv col-xs-4"><span class="label actionTypeSpan action{{bookmark}}">{{bookmarkbookmark.LISTITEMNUM}}</span></div>
+        <div ng-click="aiService.openUserAi({{bookmark.LISTITEMNUM}})" class="aiStatusDiv col-xs-4"><span class="label actionTypeSpan action{{bookmark.actionTypeClass}}">{{bookmark.ACTIONTYPE}}</span></div>
       </div>
     </div>
