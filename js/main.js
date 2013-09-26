@@ -5,7 +5,9 @@
  */
 var euclidAV = angular.module('euclidAV', ['LocalStorageModule', 'ngRoute']);
 var actionItemDllBaseUrl = "https://www.euclidtechnology.com/cvweb/cgi-bin/actionitemsdll.dll/list?";
-var userId = "JWU";
+
+
+
 
 
 

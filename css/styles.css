@@ -295,5 +295,11 @@ margin-top: 10px;
 #detailHeaderBtnDiv .btnSubDiv{
 display: inline-block;
 padding-left: 12px;
+cursor: pointer;
 
+}
+
+#detailHeaderBtnDiv .icon-bookmark{
+display: inline;
+color: #61C6CF;
 }

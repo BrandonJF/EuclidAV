@@ -18,7 +18,7 @@
 	</div>
 	<div class="container">  
 		<div class="row" id="searchRow"> 
-			<a href="#/"><div class="col-xs-2 topNavBtn" ng-click="getUserAis()"> <i class="icon-user"></i> </div></a>
+			<a href="#/"><div class="col-xs-2 topNavBtn" ng-click="getUserAis(username)"> <i class="icon-user"></i> </div></a>
 			<a href="#/bookmarks"><div class="col-xs-2 topNavBtn"> <i class="icon-bookmark "></i>  </div></a>
 			<a href="https://www.euclidtechnology.com/support/myactionitems.aspx"><div class="col-xs-2 topNavBtn" id="topNavBrowser"> <i class="icon-globe"></i> </div></a>
 			<div class="col-xs-6" id="searchInputDiv">  
@@ -51,6 +51,7 @@
 	<script src="/js/controllers/actionViewCtrl.js"></script>
 	<script src="/js/controllers/userAiListCtrl.js"></script>
 	<script src="/js/controllers/aiDetailCtrl.js"></script>
+	<script src="/js/services/userService.js"></script>
 	<script src="/js/services/aiService.js"></script>
 	<script src="/js/euclidActionView.js"></script>
 	<script src="/js/localStorageModule.js"></script>
