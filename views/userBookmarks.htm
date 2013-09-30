@@ -9,7 +9,7 @@
           <a ng-href="#/ai/{{bookmark.LISTITEMNUM}}"><span class="col-xs-4 optIconSpan" ><i class="icon-info-sign"></i></span></a>
          
         </div> 
-        <div class="aiNumberDiv col-xs-6">Item #{{bookmark.LISTITEMNUM}}</div>
+        <div class="aiNumberDiv col-xs-6">{{bookmark.NAMEFIND}} #{{bookmark.LISTITEMNUM}}</div>
         <div ng-click="aiService.openUserAi({{bookmark.LISTITEMNUM}})" class="aiStatusDiv col-xs-4"><span class="label actionTypeSpan action{{bookmark.actionTypeClass}}">{{bookmark.ACTIONTYPE}}</span></div>
       </div>
     </div>

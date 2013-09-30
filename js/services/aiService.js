@@ -1,6 +1,7 @@
 euclidAV.factory("aiService", function($http, localStorageService, userService){
   var aiService =  { 
-    actionItemDllBaseUrl:"https://www.euclidtechnology.com/cvweb/cgi-bin/actionitemsdll.dll/list?",
+    //actionItemDllBaseUrl:"https://www.euclidtechnology.com/cvweb/cgi-bin/actionitemsdll.dll/list?",
+    actionItemDllBaseUrl:"https://www.euclidtechnology.com/cvweb/cgi-bin/utilities.dll/customlist?",
     bookmarks: localStorageService.get('userBookmarks')||[],
     getUserAis: function (username) {
        //console.log("getUserAis Called.");
@@ -9,11 +10,8 @@ euclidAV.factory("aiService", function($http, localStorageService, userService){
         url: aiService.actionItemDllBaseUrl,
         method: 'GET',
         params: {
-          "ACTIONASSIGNEDTOCD": username,
-          "ACTIONPRIORITY": "",
-          "ACTIONSTT": "Out-Standing",
-          "ACTIONSUBJECTCD": "",
-          "ACTIONTYPE": "",
+          "user": username,
+          "sqlname": "GETEAVUSERAIS",
           //"RANGE": "1/15",
           "SORT": "LISTITEMNUM DESC",
           "WBP": "ai_list_JSON.json",
@@ -38,12 +36,14 @@ euclidAV.factory("aiService", function($http, localStorageService, userService){
 
     getAiDetails: function(aiNumber){
      return $http({
-      url: "https://www.euclidtechnology.com/cvweb/cgi-bin/actionitemsdll.dll/info?",
+      //url: "https://www.euclidtechnology.com/cvweb/cgi-bin/actionitemsdll.dll/info?",
+      url:"https://www.euclidtechnology.com/cvweb/cgi-bin/utilities.dll/customlist?",
       method: 'GET',
       params: {
-        "LISTITEMNUM":aiNumber,
+      	"sqlname": "GETEAVUSERAIS",
+        "aiNum":aiNumber,
         "WMT":"none",
-        "RESPONSEPAGE": "ai_list_JSON.json"
+         "WBP": "ai_list_JSON.json",
       }
     });
    },
