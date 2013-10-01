@@ -13,7 +13,7 @@ euclidAV.controller('aiDetailCtrl',['$scope','$routeParams','aiService',function
 		$scope.modifyDetails();
 		}
 		else{
-			$("#details").html("Unable to find Action Item in system.")
+			$("#details").html("There are no notes for this AI.")
 		}
 	$scope.getDetails();
 	});
@@ -35,10 +35,10 @@ $scope.getDetails = function(){
 		var notesAmt = noteHeaders.length;
 		$.each(noteHeaders, function(index,noteHeader){
 			var $noteHeader = $(noteHeader);
-			$noteHeader.addClass("noteHeader");
+			$noteHeader.addClass("noteHeader panel-heading");
 			if (index < notesAmt){
 				var $entireNote = $noteHeader.add($noteHeader.nextUntil("table"));
-				$entireNote.wrapAll( "<div class='note'></div>" );
+				$entireNote.wrapAll( "<div class='note well'></div>" );
 			}
 			var headerText = $noteHeader.text();
 			headerText = headerText.substring(headerText.indexOf("by") + 3);

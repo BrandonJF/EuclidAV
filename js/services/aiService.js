@@ -113,7 +113,7 @@ isBookmarked: function(actionItem){
   },
   modifyAi: function(actionItem){
   	//console.log("modifyAi Called.");
-    actionItem.actionTypeClass = actionItem.ACTIONTYPE.replace(/\s+/g,'');
+    actionItem.actionTypeClass = actionItem.ACTIONTYPE.replace(/\s+/g,'').replace("/","");
     actionItem.bookmarked = aiService.isBookmarked(actionItem);
     console.log(actionItem.bookmarked)
     return actionItem;

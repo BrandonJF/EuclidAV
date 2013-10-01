@@ -195,6 +195,10 @@ visibility:hidden;
 
 .aiNumberDiv{
 	cursor: pointer;
+	height: 60px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
 }
 
 .aiStatusDiv{
@@ -230,9 +234,33 @@ visibility:hidden;
 .actionTypeSpan.actionReadytoClose{
 	background-color:#999999;
 }
-.actionTypeSpan.Development{
+.actionTypeSpan.actionDevelopment{
 	background-color:#E3808E;
 }
+.actionTypeSpan.actionProgram{
+	background-color:#5CDC9F;
+}
+.actionTypeSpan.actionEnhancement{
+	background-color:#5CDC9F;
+}
+.actionTypeSpan.actionEmail{
+	background-color: #DC6C5C;
+}
+.actionTypeSpan.actionFixUpdate{
+	background-color: #2E8F61;
+}
+.actionTypeSpan.actionCall{
+	background-color: #09474C;
+}
+.actionTypeSpan.actionMeeting{
+	background-color: #7AA6AA;
+}
+.actionTypeSpan.actionSendBrochure{
+	background-color: #CF8F61;
+}
+
+
+
 
 #aiDetailHeader{
 	background-color: #FBFCFD;
@@ -243,7 +271,8 @@ visibility:hidden;
 	border-bottom: 1px solid #EDEDED;
 	height: 52px;
 	line-height: 52px;
-	vertical-align: middle;;
+	vertical-align: middle;
+	margin-bottom: 20px;
 }
 
 .note{
@@ -254,7 +283,6 @@ visibility:hidden;
 }
 
 .noteHeader{
-	background-color: #FFF;
 	color:#6686A5;
 	font-size: 13px;
 	 font-family: "Lato", Helvetica, Arial, sans-serif;
@@ -303,6 +331,8 @@ cursor: pointer;
 display: inline;
 color: #61C6CF;
 }
+
+.active i{color: #61C6CF;}
 
 
 
