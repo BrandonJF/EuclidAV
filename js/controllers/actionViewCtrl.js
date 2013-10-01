@@ -39,6 +39,13 @@ euclidAV.controller("ActionViewCtrl", ['$scope','$http','$location','localStorag
   // $scope.isBookmarked = function(aiNumber){
   //   return _.indexOf($scope.ai.bookmarks, aiNumber)!==-1 ? true : false;
   // }
+  $scope.isActive = function(path) {
+    if ($location.path() == path) {
+      return "active"
+    } else {
+      return ""
+    }
+}
 
   $scope.getUserAis = function (username) {    
     console.log("getUserAis called for:", username)
@@ -51,7 +58,12 @@ euclidAV.controller("ActionViewCtrl", ['$scope','$http','$location','localStorag
   }
 
   $scope.searchUserAi = function(aiNumber){
-  	$scope.navigateTo('/ai/' + aiNumber);
+    if (aiNumber.indexOf("user/")==-1){$scope.navigateTo('/ai/' + aiNumber);}
+    else{
+      localStorageService.add("username", aiNumber.split("/")[1]);
+      window.location.reload();
+
+    }
   }
 
 //localStorageService.add("username","JWU");
