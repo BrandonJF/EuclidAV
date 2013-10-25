@@ -27,7 +27,9 @@
 						<button id="searchAiBtn"class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" ng-click="searchUserAi(searchAiNumber)"></span> </button>
 					</span>
 					<form ng-submit="searchUserAi(searchAiNumber)">
-					<input type="text" id="searchAiInput"class="form-control" placeholder="Search for Action Items" ng-model="searchAiNumber">
+					<!-- <input type="text" id="searchAiInput"class="form-control" placeholder="Search for Action Items" ng-model="searchAiNumber"> -->
+					<input type="text" id="searchAiInput"class="form-control" placeholder="Search for Action Items" ng-model="searchAiNumber" x-webkit-speech>
+					<!-- <input x-webkit-speech> -->
 					</form>
 
 				</div><!-- /input-group -->
